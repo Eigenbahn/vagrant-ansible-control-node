@@ -2,6 +2,9 @@
 
 Quickly spin a local Ansible control node with [Vagrant](https://www.vagrantup.com/) + [VirtualBox](https://www.virtualbox.org/).
 
+For more context, read the [accompanying blog post](https://www.eigenbahn.com/2020/09/09/instant-ansible-control-node).
+
+![instant_noodles](https://www.eigenbahn.com/assets/gif/instant_noodles.gif)
 
 ## Usage
 
