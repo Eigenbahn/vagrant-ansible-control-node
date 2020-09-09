@@ -68,4 +68,4 @@ We also authorize SSH as root.
 
 ## Going further
 
-If you're an Emacs user, you might want to check out package [magrant](https://github.com/p3r7/magrant) for easier Vagrant cli operations.
+If you're an Emacs user, you might want to check out package [magrant](https://github.com/p3r7/magrant) for a tighter integration with Vagrant cli commands.
