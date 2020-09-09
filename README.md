@@ -47,6 +47,7 @@ I selected the [official Debian 10 box](https://app.vagrantup.com/debian/boxes/c
 
 I also projected using [generic/debian10](https://app.vagrantup.com/generic/boxes/debian10) from the [Roboxes](https://roboxes.org/) project but it came bundled with an old version of VirtualBox guest additions.
 
+
 #### Better defaults
 
 A lot of boxes only come with SSH authentication by key.
@@ -54,3 +55,8 @@ A lot of boxes only come with SSH authentication by key.
 As [per official recommandations](https://www.vagrantup.com/docs/boxes/base#default-user-settings), we also set the `vagrant` and `root` users password to `vagrant` and authorize SSH by password.
 
 We also authorize SSH as root.
+
+
+## Going further
+
+If you're an Emacs user, you might want to check out package [magrant](https://github.com/p3r7/magrant) for easier Vagrant cli operations.
