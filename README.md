@@ -66,6 +66,7 @@ We also authorize SSH as root.
 
 ## Similar projects
 
+ - [Disposable Infrastructure post series from Exclamation Labs](https://www.exclamationlabs.com/blog/disposable-infrastructure-part-1-building-your-vagrant-control-node/) documents using an old Ubuntu 14.04 base box and installs Ansible from the official PPA. Provisoning is done via an inline shell script.
  - [baldoarturo/ansible-control-node](https://github.com/baldoarturo/ansible-control-node) uses an old Ubuntu 16.04 base box and installs Ansible from the official PPA. Provisoning is done via an inline shell script.
 
 
