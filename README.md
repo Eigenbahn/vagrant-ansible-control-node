@@ -8,6 +8,8 @@ Quickly spin a local Ansible control node with [Vagrant](https://www.vagrantup.c
     $ git clone https://github.com/Eigenbahn/vagrant-ansible-control-node
     $ cd vagrant-ansible-control-node
     $ vagrant up
+    # [...]
+    $ vagrant ssh
 
 
 ## Configuration
