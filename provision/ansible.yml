@@ -1,0 +1,69 @@
+---
+- hosts: '*'
+  connection: local
+  become: True
+
+  vars:
+    # my_reinstall_ansible_from_ppa: yes
+    my_reinstall_ansible_from_ppa: no
+
+    my_disable_ansible_chost_key_change_check: yes
+
+    # my_ansible_additonal_role_path: '/ansible/roles'
+    my_ansible_additonal_role_path: Null
+
+    # my_ansible_nb_parallel_targets: 20
+    my_ansible_nb_parallel_targets: Null
+
+
+  tasks:
+
+    - name: Add Ansible repo
+      when: my_reinstall_ansible_from_ppa
+      apt_repository:
+        repo: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+
+    - name: Add Ansible repo key
+      when: my_reinstall_ansible_from_ppa
+      apt_key:
+        id: 93C4A3FD7BB9C367
+        url: keyserver.ubuntu.com
+        state: present
+
+    - name: Reinstall Ansible from PPA
+      when: my_reinstall_ansible_from_ppa
+      apt:
+        name: ansible
+        update_cache: yes
+
+    - name: Update ansible roles path
+      when: my_ansible_additonal_role_path
+      lineinfile:
+        path: /etc/ansible/ansible.cfg
+        line: "roles_path    = /etc/ansible/roles:{{ my_ansible_additonal_role_path }}"
+        regexp: '^#?roles_path *='
+
+    - name: Disable checking host key changes
+      when: my_disable_ansible_chost_key_change_check
+      lineinfile:
+        path: /etc/ansible/ansible.cfg
+        regexp: '.*host_key_checking = .*'
+        line: 'host_key_checking = False'
+
+    - name: Tweek number of target hosts provisioned in parallel
+      when: my_ansible_nb_parallel_targets
+      lineinfile:
+        path: /etc/ansible/ansible.cfg
+        regexp: '.*forks = .*'
+        line: 'forks = {{ my_ansible_nb_parallel_targets }}'
+
+    - name: install pip
+      apt:
+        name: python3-pip
+
+    - name: install standard python modules
+      pip:
+        name:
+          - requests
+          - configparser
+          - pywinrm>=0.3.0

@@ -1,0 +1,38 @@
+---
+- hosts: '*'
+  connection: local
+  become: True
+
+  vars:
+    my_hostname: ansible-control-node
+
+
+  tasks:
+    - name: Ensure root password is Vagrant
+      user:
+        name: root
+        password: vagrant
+
+    - name: Ensure ssh auth by password is on
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PasswordAuthentication .*'
+        line: 'PasswordAuthentication yes'
+      register: ensure_ssh_root_auth
+
+    - name: Ensure root ssh access is on
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitRootLogin .*'
+        line: 'PermitRootLogin yes'
+      register: ensure_ssh_password_auth
+
+    - name: restart SSH service
+      when: ensure_ssh_root_auth.changed or ensure_ssh_password_auth.changed
+      service:
+        name: ssh
+        state: restarted
+
+    - name: Change hostname
+      hostname:
+        name: '{{ my_hostname }}'
