@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "generic/debian10"
+  config.vm.box = "debian/contrib-buster64"
 
   # config.vm.box_check_update = false
 
@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   end
 
   # fix vbox guest addition install
-  config.vm.provision "basic", type: "shell", :path => "provision/guest-additions.sh"
+  # config.vm.provision "basic", type: "shell", :path => "provision/guest-additions.sh"
   # basic box/machine normalization
   config.vm.provision "normalize", type: "ansible_local" do |ansible|
     ansible.playbook = "provision/normalize.yml"
