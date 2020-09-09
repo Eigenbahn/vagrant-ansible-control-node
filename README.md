@@ -47,6 +47,8 @@ I selected the [official Debian 10 box](https://app.vagrantup.com/debian/boxes/c
 
 I also projected using [generic/debian10](https://app.vagrantup.com/generic/boxes/debian10) from the [Roboxes](https://roboxes.org/) project but it came bundled with an old version of VirtualBox guest additions.
 
+Likewise, official Ubuntu boxes are also great but have an issue with slow startup time.
+
 
 #### Better defaults
 
@@ -55,6 +57,11 @@ A lot of boxes only come with SSH authentication by key.
 As [per official recommandations](https://www.vagrantup.com/docs/boxes/base#default-user-settings), we also set the `vagrant` and `root` users password to `vagrant` and authorize SSH by password.
 
 We also authorize SSH as root.
+
+
+## Similar projects
+
+ - [baldoarturo/ansible-control-node](https://github.com/baldoarturo/ansible-control-node) uses an old Ubuntu 16.04 base box and installs Ansible from the official PPA. Provisoning is done via an inline shell script.
 
 
 ## Going further
