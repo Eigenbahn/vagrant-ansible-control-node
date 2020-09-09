@@ -7,7 +7,7 @@
     # my_reinstall_ansible_from_ppa: yes
     my_reinstall_ansible_from_ppa: no
 
-    my_disable_ansible_chost_key_change_check: yes
+    my_disable_ansible_host_key_change_check: yes
 
     # my_ansible_additonal_role_path: '/ansible/roles'
     my_ansible_additonal_role_path: Null
@@ -44,7 +44,7 @@
         regexp: '^#?roles_path *='
 
     - name: Disable checking host key changes
-      when: my_disable_ansible_chost_key_change_check
+      when: my_disable_ansible_host_key_change_check
       lineinfile:
         path: /etc/ansible/ansible.cfg
         regexp: '.*host_key_checking = .*'

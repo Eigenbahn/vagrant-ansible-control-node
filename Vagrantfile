@@ -8,8 +8,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "private_network", ip: "192.168.254.253"
 
-  # NB: for some reason, on some versions on VirtualBox this needs to be set explicitely
-  # config.vm.synced_folder ".", "/vagrant"
+  # config.vm.synced_folder ".", "/vagrant" # NB: for some reason, on some versions on VirtualBox this needs to be set explicitely
   # config.vm.synced_folder "~/Nextcloud/ansible", "/ansible"
 
   config.vm.boot_timeout = 600
