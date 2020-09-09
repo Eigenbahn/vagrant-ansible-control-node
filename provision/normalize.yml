@@ -11,7 +11,7 @@
     - name: Ensure root password is Vagrant
       user:
         name: root
-        password: vagrant
+        password: '{{ "vagrant" | password_hash("sha512", "salt123") }}'
 
     - name: Ensure ssh auth by password is on
       lineinfile:
