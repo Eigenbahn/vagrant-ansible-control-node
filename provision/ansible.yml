@@ -61,6 +61,10 @@
       apt:
         name: python3-pip
 
+    - name: set python interpreter to python3
+      set_fact:
+        ansible_python_interpreter: /usr/bin/python3
+
     - name: install standard python modules
       pip:
         name:
