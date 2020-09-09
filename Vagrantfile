@@ -22,11 +22,11 @@ Vagrant.configure("2") do |config|
   # fix vbox guest addition install
   config.vm.provision "basic", type: "shell", :path => "provision/guest-additions.sh"
   # basic box/machine normalization
-  config.vm.provision "basic-ansible", type: "ansible_local" do |ansible|
+  config.vm.provision "normalize", type: "ansible_local" do |ansible|
     ansible.playbook = "provision/normalize.yml"
   end
   # ansible installation + tweaks
-  config.vm.provision "basic-ansible", type: "ansible_local" do |ansible|
+  config.vm.provision "ansible", type: "ansible_local" do |ansible|
     ansible.playbook = "provision/ansible.yml"
   end
 end
