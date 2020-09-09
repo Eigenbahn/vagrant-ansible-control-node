@@ -24,7 +24,7 @@ Some stuff can be tweaked in the [Vagrantfile](./Vagrantfile):
 - `vb.name`: the alias given to the VirtualBox VM / Vagrant machine
 - `vb.memory`: the amount of RAM (in MB) allocated to the VM
 
-Additionally, you can adjust a few variables in the [ansible](./provision/ansible.yml) provisioner:
+Additionally, you can adjust a few variables in the [ansible](./provision/ansible.yml) provisioning script:
 
  - `my_reinstall_ansible_from_ppa`: When `yes`, reinstall Ansible from the bleeding edge official Ansible PPA. Defaults to `no`.
  - `my_disable_ansible_host_key_change_check`: When `yes`, Ansible won't complain when the identity of a remote host changes. Defaults to `yes`.
