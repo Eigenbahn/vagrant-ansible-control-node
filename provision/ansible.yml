@@ -71,9 +71,15 @@
           - requests
           - configparser
 
-    - name: install Ansible module dependencies
+    - name: install Ansible module dependencies (pip)
       pip:
         name:
           - pywinrm>=0.3.0
           - docker-py
+          - python-dnf
           - pyrax
+
+    - name: install Ansible module dependencies (system)
+      apt:
+        name:
+          - rsync
