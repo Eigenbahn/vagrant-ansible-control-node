@@ -22,8 +22,8 @@ Some stuff can be tweaked in the [Vagrantfile](./Vagrantfile):
 Additionally, you can adjust a few variables in the [ansible](./provision/ansible.yml) provisioner:
 
  - `my_reinstall_ansible_from_ppa`: When `yes`, reinstall Ansible from the bleeding edge official Ansible PPA. Defaults to `no`.
- - `my_disable_ansible_host_key_change_check`: When `yes`, Ansible won't complain when the identity of a remoite host changes. Defaults to `yes`.
- - `my_ansible_additonal_role_path`: When set, additonal folders when roles are stored. Separator is `:`.
+ - `my_disable_ansible_host_key_change_check`: When `yes`, Ansible won't complain when the identity of a remote host changes. Defaults to `yes`.
+ - `my_ansible_additonal_role_path`: When set, additional folders when roles are stored. Separator is `:`.
  - `my_ansible_nb_parallel_targets`: When set, number of hosts that can be provisioned in parallel.
 
 
